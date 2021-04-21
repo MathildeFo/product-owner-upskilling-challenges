@@ -7,4 +7,4 @@ puts "What is your year of birth?"
 year = gets.chomp
 yearinter = year.to_i
 age= 2021-yearinter
-puts "Hey #{name}, Your are so old! You will be #{age} this year."
+puts "Hey #{name}, Your are so old buddy! You will be #{age} this year."
