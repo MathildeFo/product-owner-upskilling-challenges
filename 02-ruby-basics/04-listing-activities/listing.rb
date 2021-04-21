@@ -26,10 +26,10 @@ activities = [
 ]
 
 activities.each do |activity|
-puts "#{activity["Name"]} [#{activity["Category"]}]"
-puts "Located in #{activity["City"]}"
-puts "Duration of #{activity["Duration(min)"]}minutes"
-puts "For #{activity["Number of participants"]} participants"
-puts "Charged #{activity["Price(euros)"]}euros"
-puts "---------"
+  puts "#{activity["Name"]} [#{activity["Category"]}]"
+  puts "Located in #{activity["City"]}"
+  puts "Duration of #{activity["Duration(min)"]}minutes"
+  puts "For #{activity["Number of participants"]} participants"
+  puts "Charged #{activity["Price(euros)"]}euros"
+  puts "---------"
 end
