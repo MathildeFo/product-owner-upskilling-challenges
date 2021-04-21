@@ -6,6 +6,7 @@ categories = [
   "Cultural",
   "Food"
 ]
+ categori
 
 puts "Here the available activites"
 categories.each do |name|
@@ -15,9 +16,10 @@ puts "Would you like to propose a new activity?"
 
 useractivity = gets.chomp
 totalactivity = categories << useractivity
+totalactivitysorted = totalactivity.sort
 
 puts "Here all the available activites"
-totalactivity.each do |name|
+totalactivitysorted.each do |name|
   puts "#{name}"
 end
 
