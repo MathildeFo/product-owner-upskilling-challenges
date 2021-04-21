@@ -6,7 +6,6 @@ categories = [
   "Cultural",
   "Food"
 ]
- categori
 
 puts "Here the available activites"
 categories.each do |name|
@@ -23,4 +22,4 @@ totalactivitysorted.each do |name|
   puts "#{name}"
 end
 
-puts Total: totalactivity.size
+puts "Total: #{totalactivity.size}"
