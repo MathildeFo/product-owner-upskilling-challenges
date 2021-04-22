@@ -18,7 +18,7 @@
             <h2><%=activity["Name"]%></h2>
             <span class="label label-primary category"><%=activity["Category"]%></span>
           </div>
-          <div class="picture" style="background-image: <%=activity["photo_url"]%>"></div>
+          <div class="picture" style="background-image: url(<%=activity["photo_url"]%>)"></div>
           <div class="activity-details">
             <div class="sub-header">
               <span class="city"><strong><%= activity["City"] %></strong></span>

@@ -15,6 +15,10 @@ url ="https://team-building-api.cleverapps.io/v2/employees?team_id=#{idteam}"
 response = RestClient.get(url)
 user = JSON.parse(response.body)
 
+employees=user["employees"]
+
+puts "Total: #{employees.size} people found"
+
 user["employees"].each do |employee|
 puts "#{employee["first_name"]} #{employee["last_name"]} "
 puts "#{employee["job_title"]}"
