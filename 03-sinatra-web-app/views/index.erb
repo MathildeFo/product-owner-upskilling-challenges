@@ -7,8 +7,39 @@
     <title>Team Building - Activities</title>
     <%= stylesheet '/style.css' %>
   </head>
+
   <body>
     <h1>Activities</h1>
-    <p>TODO: display all the activities</p>
+
+    <div class="activity-cards-container">
+    <% @activities.each do |activity| %>
+        <div class="activity-card">
+            <div class="header">
+            <h2><%=activity["Name"]%></h2>
+            <span class="label label-primary category"><%=activity["Category"]%></span>
+          </div>
+          <div class="picture" style="background-image: <%=activity["photo_url"]%>"></div>
+          <div class="activity-details">
+            <div class="sub-header">
+              <span class="city"><strong><%= activity["City"] %></strong></span>
+              <span class="price"><%= activity["Price(euros)"] %> euros </span>
+            </div>
+            <div class="details">
+              <ul>
+                <li class="participants">
+                  <span class="icon">👥</span> <%= activity["Number of participants"] %> participants
+                </li>
+                <li class="duration">
+                  <span class="icon">⏱</span> <%= activity["Duration(min)"] %> min
+                </li>
+              </ul>
+              <div class="cta">
+                <a href="/activities/25" class="btn btn-bold btn-primary link">Discover</a>
+              </div>
+            </div>
+          </div>
+        </div>
+     <% end %>
+   </div>
   </body>
 </html>

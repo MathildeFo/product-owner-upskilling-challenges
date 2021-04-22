@@ -6,7 +6,33 @@ enable :static
 
 get "/" do
   @activities = [
-    # TODO: gather a few activities
+      {
+         "Name" => "Escape game",
+         "Category" => "ADVENTURE",
+         "City" => "Nantes",
+         "Duration(min)" => 60,
+         "Number of participants" => 4,
+         "Price(euros)" => 120,
+         "photo_url" => url('https://ad962edbae8ba7b03b7f-d10007df79b5b7a4e475a291e50a08cf.ssl.cf3.rackcdn.com/2101/ouvrir-escape-game.jpg')
+      },
+      {
+         "Name" => "Skydiving",
+         "Category" => "ADVENTURE",
+         "City" => "Marseille",
+         "Duration(min)" => 30,
+         "Number of participants" => 6,
+         "Price(euros)" => 234,
+         "photo_url" => url('https://www.koifaire.com/articles/wp-content/uploads/2016/04/parachutisme-660x400.jpg')
+      },
+      {
+         "Name" => "Boatparty",
+         "Category" => "Food and fun",
+         "City" => "Marseille",
+         "Duration(min)" => 240,
+         "Number of participants" => 20,
+         "Price(euros)" => 800,
+         "photo_url" => url('https://www.koifaire.com/articles/wp-content/uploads/2016/04/parachutisme-660x400.jpg')
+      },
   ]
 
   erb :index
