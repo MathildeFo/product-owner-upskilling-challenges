@@ -158,7 +158,6 @@ a, a:hover, a:visited {
   background-repeat: no-repeat;
 }
 
-.activity-card .header,
 .activity-details {
   padding-left: 1.5em;
   padding-right: 1.5em;
@@ -318,19 +317,28 @@ a, a:hover, a:visited {
   margin: 0 0.2em;
 }
 
+.list-inline{
+	list-style: none;
+	padding-left: 0px;
+	}
+
+.list-inline li{
+	display: inline;
+	padding: 30px;
+}
+
 /* ---------- HERO ---------- */
 
 .hero {
-  display: flex;
+    display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   height: 485px;
   background-color: #f0dbc2;
-  background-image: url('./banner.jpg');
-  background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  background-image: url('https://www.u-pec.fr/medias/photo/thinkstockphotos-805105990-1200x800_1516365867737-jpg');
 }
 
 .hero h1 {
@@ -338,6 +346,7 @@ a, a:hover, a:visited {
   font-family: 'Poiret One', cursive;
   font-size: 4.5em;
   font-weight: 400;
+  color: white;
 }
 
 .hero h1 small {

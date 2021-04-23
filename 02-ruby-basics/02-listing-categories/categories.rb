@@ -19,7 +19,8 @@ totalactivitysorted = totalactivity.sort
 
 puts "Here all the available activites"
 totalactivitysorted.each do |name|
-  puts "#{name}"
+  puts "- #{name}"
 end
 
+puts # empty line
 puts "Total: #{totalactivity.size}"

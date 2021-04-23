@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Book your activity</title>
+    <%= stylesheet '/style.css' %>
+  </head>
+
+
+  <body class="activity-page">
+    <div class="hero" style="background-image: url('<%= @activity["photo_url"]%>')">
+        <div class="page-header">
+          <h1>
+            <%= @activity["name"]%>
+          </h1>
+        </div>
+
+        </div>
+    </div>
+
+
+     <div style="width: 500px">
+       <div class="activity-details">
+          <div class="sub-header">
+            <span class="city"><%= @activity["city"]%></span>
+            <span class="price"><%= @activity["price"]%> euros</span>
+          </div>
+          <div class="details">
+            <ul>
+              <li class="participants">
+                <span class="icon">👥</span> <%= @activity["participants_count"]%> participants
+              </li>
+              <li class="duration">
+               <span class="icon">⏱</span> <%= @activity["duration"]%> min
+              </li>
+            </ul>
+            <div class="cta">
+              <a href="#" class="btn btn-large btn-bold btn-primary">Book a session</a>
+            </div>
+          </div>
+        </div>
+    </div>
+
+        </div>
+   </body>
