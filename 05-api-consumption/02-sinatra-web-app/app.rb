@@ -9,7 +9,9 @@ enable :static
 
 get "/" do
   city=params["city"]
-  activity_url = "https://team-building-api.cleverapps.io/v2/activities?city=#{city}"
+  name=params["name"]
+  category=params["category"]
+  activity_url = "http://localhost:4567/v2/activities?city=#{city}"
   response = RestClient.get(activity_url)
   payload = JSON.parse(response.body)
   @activities = payload["activities"]
@@ -18,7 +20,7 @@ end
 
 get "/activities/:id" do
   id= params["id"]
-  activity_url = "https://team-building-api.cleverapps.io/v2/activities/#{id}"
+  activity_url = "http://localhost:4567/v2/activities/#{id}"
   response = RestClient.get(activity_url)
   payload = JSON.parse(response.body)
   @activity = payload["activity"]

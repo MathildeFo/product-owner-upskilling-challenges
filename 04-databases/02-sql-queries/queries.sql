@@ -15,7 +15,7 @@ SELECT * from activities ORDER BY name;
 SELECT * from activities WHERE category="Sport";
 
 -- Get all Escape Games in Nantes
-SELECT * from activities WHERE name like "%Escape%" ADN city="Nantes";
+SELECT * from activities WHERE name like "%Escape%" AND city="Nantes";
 
 ---------------------------------------
 -- [AGGREGATES]
