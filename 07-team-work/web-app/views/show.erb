@@ -8,16 +8,53 @@
     <%= stylesheet "/style.css" %>
     <script type="text/javascript" src="/script.js"></script>
   </head>
-  <body>
-    <h1>
-      <%= @activity["name"] %>
-      <small>[<%= @activity["category"].upcase %>]</small>
-    </h1>
-    <ul>
-      <li>Located in <%= @activity["city"] %></li>
-      <li>Duration of <%= @activity["duration"] %> minutes</li>
-      <li>For <%= @activity["participants_count"] %> participants</li>
-      <li>Charged <%= @activity["price"] %>€</li>
-    </ul>
+  <body class="activity-page">
+    <div class="hero" style="background-image: url('<%= @activity["photo_url"]%>')">
+          <h1>
+            <%= @activity["name"]%>
+          </h1>
+    </div>
+
+    <div style="width: 500px">
+      <div class="activity-details">
+          <div class="sub-header">
+            <span class="city"><%= @activity["city"]%></span>
+            <span class="price"><%= @activity["price"]%> euros</span>
+          </div>
+          <div class="details">
+            <ul>
+              <li class="participants">
+                <span class="icon">👥</span> <%= @activity["participants_count"]%> participants
+              </li>
+              <li class="duration">
+               <span class="icon">⏱</span> <%= @activity["duration"]%> min
+              </li>
+            </ul>
+            <div class="cta">
+              <a href="#" class="btn btn-large btn-bold btn-primary">Book a session</a>
+
+            </div>
+                    <div style="position: relative; width: 500px; margin-bottom: 5em">
+            <a href="#" data-wishlist-dialog="#wishlist-unique-target-name" class="wishlist-action btn btn-light"><span class="icon">🚀</span> Add to wishlist</a>
+
+            <div class="wishlist hidden" id="wishlist-unique-target-name">
+              <h2>Select your site</h2>
+              <% @site.each do |site|%>
+              <ul class="choices">
+                <li class="choice">
+                  <button class="btn btn-default btn-outline">
+                  <span class="icon">🚀</span>
+                  <%= site["name"]%>
+                  </button>
+                </li>
+              </ul>
+              <% end %>
+            </div>
+          </div>
+
+          </div>
+
+      </div>
+    </div>
   </body>
 </html>
