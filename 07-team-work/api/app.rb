@@ -187,8 +187,13 @@ namespace "/v2" do
 
   get "/favorites" do
 
+    if params["activity_id"].nil? || params["activity_id"].empty?
+    favorites = DB.execute("SELECT * FROM site_favorite_activities")
+
+    else
     activity_id         = params["activity_id"].to_i
     favorites = DB.execute("SELECT * FROM site_favorite_activities WHERE activity_id = ?", activity_id)
+    end
 
     json "favorites" => favorites
   end

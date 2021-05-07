@@ -81,7 +81,7 @@ a, a:hover, a:visited {
 
 .btn-light:hover {
   color: white;
-  background-color: #444;
+  background-color: rgb(194, 18, 18);
 }
 
 .btn-outline.btn-default,
@@ -162,7 +162,7 @@ a, a:hover, a:visited {
 
 .stars-icon {
   color: transparent;
-  text-shadow: 0 0 0 rgb(201, 198, 198);
+  text-shadow: 0 0 0 rgb(165, 161, 161);
 }
 
 .activity-card .category {
