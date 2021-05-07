@@ -4,19 +4,19 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Team Building - Activity</title>
-    <%= stylesheet "/style.css" %>
+    <title>Team Building - Activities</title>
+    <%= stylesheet '/style.css' %>
     <script type="text/javascript" src="/script.js"></script>
   </head>
-  <body class="activity-page">
-    <div class="hero" style="background-image: url('<%= @activity["photo_url"]%>')">
-          <h1>
-            <%= @activity["name"]%>
-          </h1>
-    </div>
 
-    <div style="width: 500px">
-      <div class="activity-details">
+  <body>
+    <div class="activity-page">
+      <div class="page-header">
+        <h1 title="/"><%= @activity["name"] %></h1>
+        <span class="label label-primary category"><%=@activity["category"].upcase %></span>
+       </div>
+      <div class="hero" style="background-image: url(<%=@activity["photo_url"]%>)">
+        <div class="activity-details">
           <div class="sub-header">
             <span class="city"><%= @activity["city"]%></span>
             <span class="price"><%= @activity["price"]%> euros</span>
@@ -27,34 +27,79 @@
                 <span class="icon">👥</span> <%= @activity["participants_count"]%> participants
               </li>
               <li class="duration">
-               <span class="icon">⏱</span> <%= @activity["duration"]%> min
+                <span class="icon">⏱</span> <%= @activity["duration"]%>min
               </li>
             </ul>
             <div class="cta">
               <a href="#" class="btn btn-large btn-bold btn-primary">Book a session</a>
-
             </div>
-                    <div style="position: relative; width: 500px; margin-bottom: 5em">
-            <a href="#" data-wishlist-dialog="#wishlist-unique-target-name" class="wishlist-action btn btn-light"><span class="icon">🚀</span> Add to wishlist</a>
+            <div class="favorites">
+              <a href="#" data-wishlist-dialog="#wishlist-unique-target-name" class="wishlist-action btn btn-light"><span class="icon">🚀</span> Add to wishlist</a>
 
-            <div class="wishlist hidden" id="wishlist-unique-target-name">
-              <h2>Select your site</h2>
-              <% @site.each do |site|%>
-              <ul class="choices">
-                <li class="choice">
-                  <button class="btn btn-default btn-outline">
-                  <span class="icon">🚀</span>
-                  <%= site["name"]%>
-                  </button>
-                </li>
-              </ul>
-              <% end %>
+              <div class="wishlist hidden" id="wishlist-unique-target-name">
+                <form action="/favorites" method="post">
+                  <input type="hidden" name="activity_id" value="<%=@activity["id"]%>">
+                  <h2>Choose your site</h2>
+                    <ul class="choices">
+                      <input type="hidden" name="site_ids[]">
+                      <% @sites.each do |site| %>
+                      <li class="choice">
+                        <% if @site_ids_test.include? site["id"] %>
+                          <input type="checkbox" id="choice_<%= site["id"]%>" name="site_ids[]" value="<%= site["id"]%>" checked>
+                        <% else %>
+                          <input type="checkbox" id="choice_<%= site["id"]%>" name="site_ids[]" value="<%= site["id"]%>">
+                        <% end %>
+                        <label for="choice_<%= site["id"]%>"> <%= site["name"]%> </label><br>
+                      </li>
+                      <% end %>
+                    </ul>
+                    <input type="submit" value="Submit" class="btn btn-primary">
+                </form>
+              </div>
             </div>
           </div>
-
-          </div>
-
+        </div>
+        </div>
       </div>
     </div>
-  </body>
-</html>
+    <div>
+      <h2 class="page-header">Reviews
+        <span class="icon-padding">
+          <% @average.times do %>
+            <span class="icon">⭐</span>
+          <% end %>
+          <% @empty_stars.times do %>
+            <span class="stars-icon">⭐</span>
+          <% end %>
+
+        </span>
+      </h2>
+        <ul>
+          <div class="activity-cards-container">
+          <% @reviews.each do |review| %>
+            <li>
+              <div class="activity-review-card">
+                <h3> <%= review["comment"]%></h3>
+                <p>
+                  <% review["evaluation"].times do %>
+                    <span class="icon">⭐</span>
+                  <% end %>
+                  <% empty_stars_review = 5 - review["evaluation"] %>
+                  <% empty_stars_review.times do %>
+                    <span class="stars-icon">⭐</span>
+                  <% end %>
+                </p>
+
+                <div class="activity-review-details">
+                  <p><span class="icon">👥</span> <%= review["owner_name"]%></p>
+                  <p><span class="icon">⏱</span> <%= review["date"]%></p>
+                </div>
+              </div>
+            </li>
+           <% end %>
+
+          </div>
+        </ul>
+
+    </div>
+</body>

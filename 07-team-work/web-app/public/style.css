@@ -16,7 +16,7 @@ h1 {
 }
 
 h2 {
-  font-size: 1.3em;
+  font-size: 2em;
 }
 
 a, a:hover, a:visited {
@@ -132,10 +132,37 @@ a, a:hover, a:visited {
   margin-top: 3em;
 }
 
+.activity-cards-container li{
+  list-style: none;
+}
+
 .activity-card {
   border: 1px solid #E3E1E1;
   border-radius: 5px;
   box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.06);
+}
+
+.activity-review-card {
+  border: 1px solid #bfc3c4;
+  border-radius: 5px;
+  box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.06);
+  padding: 1.5em;
+  margin: 0;
+}
+
+.activity-review-card h3{
+  margin: 0;
+
+}
+
+.activity-review-details {
+  display: flex;
+  justify-content: space-between;
+}
+
+.stars-icon {
+  color: transparent;
+  text-shadow: 0 0 0 rgb(201, 198, 198);
 }
 
 .activity-card .category {
@@ -224,6 +251,10 @@ a, a:hover, a:visited {
 
 .activity-page .page-header {
   position: relative;
+}
+
+.icon-padding {
+  padding-left: 20px;
 }
 
 .activity-page .category {
